@@ -84,3 +84,11 @@
     })   
 
 */
+
+/*
+  Array (Vetores)
+    * Uma lista
+    * Agrupamento de dado
+    
+    ["Josan", 29]
+*/
