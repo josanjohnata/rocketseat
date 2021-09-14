@@ -54,3 +54,15 @@
 
 */
 
+/*
+  Undefined
+    * indefinido(algo que não existe)
+    console.log(undefined)
+
+  Null
+    * nulo(algo que existe nas não tem nenhum valor dentro dele)
+    * objeto que não possui nada dentro
+    * diferente de indefinido
+    console.log(null)    
+
+*/
