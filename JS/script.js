@@ -99,4 +99,16 @@
     * Agrupamento de dado
     
     ["Josan", 29]
+
+    const animals = [
+      'Lion',
+      'Monkey',
+      {
+        name: 'Cat',
+        age: 3
+      }
+    ];
+  // acessar valores dentro do array
+  console.log(animals[2].name);
+  console.log(animals.length);
 */
