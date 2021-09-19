@@ -75,6 +75,14 @@
     
   { propriedade: "valor" }
 
+  const person {
+    name: "John",
+    age: 29,
+    weight: 88.6,
+    isAdmin: true
+  };
+  console.log(person.name);
+
     console.log({
       name : "Josan",
       age: 29,
@@ -91,4 +99,16 @@
     * Agrupamento de dado
     
     ["Josan", 29]
+
+    const animals = [
+      'Lion',
+      'Monkey',
+      {
+        name: 'Cat',
+        age: 3
+      }
+    ];
+  // acessar valores dentro do array
+  console.log(animals[2].name);
+  console.log(animals.length);
 */
