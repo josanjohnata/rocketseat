@@ -34,6 +34,7 @@ let inSubscribed = true;
         <name> de idade <age> pesa <weight> kg.
         Atenção! Substitua <name> <age> e <weight> pelos valores de cada propriedade do objeto.
 */
+console.log(typeof student);
 
 student = {
   name: 'Josan',
@@ -43,3 +44,9 @@ student = {
 }
 
 console.log(`O estudante ${student.name} tem ${student.age} anos, pesa ${student.weight}kg e estuda ${student.course}.`);
+
+/*
+  5- Declare uma variável do tipo Array, de nome students e atribua a ela nenhum valor, ou seja, somente o Array vazio.
+*/
+
+let students = [];
