@@ -45,8 +45,14 @@ student = {
 
 console.log(`O estudante ${student.name} tem ${student.age} anos, pesa ${student.weight}kg e estuda ${student.course}.`);
 
-/*
-  5- Declare uma variável do tipo Array, de nome students e atribua a ela nenhum valor, ou seja, somente o Array vazio.
-*/
+
+//  5- Declare uma variável do tipo Array, de nome students e atribua a ela nenhum valor, ou seja, somente o Array vazio.
+
 
 let students = [];
+
+// 6- Reatribua valor para a variável acima, colocando dentro dela o objeto student da questão 4. (Não copiar e colar o objeto, mas usar o objeto criado e inserir ele no Array).
+
+students = [
+  student
+];
