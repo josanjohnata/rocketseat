@@ -59,3 +59,17 @@ const sayMyName = (name) => {
 }
 
 sayMyName();
+
+// callback function
+
+function sayMyNameAgain(name) {
+  console.log('Posso colocar um bloco de código antes de chama a função');
+  name()
+  console.log('posso colocar um bloco de código depois de chama a função');
+}
+
+sayMyNameAgain(
+  () => {
+    console.log('Sou uma callback');
+  }
+);
