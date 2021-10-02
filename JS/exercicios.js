@@ -56,3 +56,7 @@ let students = [];
 students = [
   student
 ];
+
+// 7- Coloque no console o valor da posição zero do Array acima.
+
+console.log(students[0]);
