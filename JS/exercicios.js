@@ -80,3 +80,10 @@ students = [
 // ou
 
 students[1] = John; // essa não é uma boa prática, existem outras formas de fazer isso com mais segurança.
+
+// 9- Sem rodar o código responda qual é a resposta do código abaixo e por que? Após sua resposta, rode o código e veja se você acertou.
+
+console.log(a);
+var a = 1;
+
+// O console vai exibir o valor undefined, porque quando o console é executado a variável ainda não existe, mas por ser "var" ela sofre uma elevação e depois que ela é reatribuida.
