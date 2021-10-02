@@ -41,3 +41,13 @@ console.log(`O valor 1 é ${valor1}`);
 console.log(`O valor 2 é ${valor2}`);
 console.log(`A soma dos valores é ${sum(valor1, valor2)}`);
 
+// Mais uma maneira de entender funções
+
+// Função é um liquidificador
+
+function fazerSuco(fruta1, fruta2) {
+  return fruta1 + ' ' + fruta2;
+}
+
+const copo = fazerSuco('banana', 'maçã');
+console.log(copo);
