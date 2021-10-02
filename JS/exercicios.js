@@ -11,21 +11,21 @@ console.log(typeof weight);
     * name: String
     * age: Number (integer)
     * stars: Number (float)
-    * inSubscribed: Boolean
+    * isSubscribed: Boolean
 */
 
 channelYoutube = {
   name: 'O mundo do John',
   age: 5,
   stars: 4.9,
-  inSubscribed: true
+  isSubscribed: true
 }
 // or
 
 let name = 'John';
 let age = 29;
 let stars = 4.9;
-let inSubscribed = true;
+let isSubscribed = true;
 
 /*
   4- A variável student abaixo é de que tipo de dados.
@@ -60,3 +60,23 @@ students = [
 // 7- Coloque no console o valor da posição zero do Array acima.
 
 console.log(students[0]);
+
+// 8- Cire um novo student e coloque na posição 1 do Array students.
+
+const John = {
+  name: 'John',
+  age: 34,
+  weight: 78.6,
+  isSubscribed: true
+}
+
+// Podemos reatribuir o Array students
+
+students = [
+  student,
+  John
+];
+
+// ou
+
+students[1] = John; // essa não é uma boa prática, existem outras formas de fazer isso com mais segurança.
