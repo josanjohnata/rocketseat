@@ -1,3 +1,5 @@
+import { Avatar } from '../Avatar';
+import { Comment } from '../Comment';
 import styles from './Post.module.css';
 
 export function Post(props) {
@@ -5,8 +7,7 @@ export function Post(props) {
         <article className={styles.post}>
             <header>
                 <div className={styles.author}>
-                    <img
-                        className={styles.avatar}
+                    <Avatar
                         src='https://github.com/josanjohnata.png'
                     />
                     <div className={styles.authorInfo}>
@@ -33,6 +34,27 @@ export function Post(props) {
                     <a href="">#nlw</a>{" "}
                     <a href="">#rocketseat</a>
                 </p>
+            </div>
+
+            <form className={styles.commentForm}>
+                <strong>
+                    Deixe seu feedback
+                </strong>
+
+                <textarea
+                    placeholder='Deixe seu comentário'
+                />
+
+                <footer>
+                    <button type='submit'>
+                        Publicar
+                    </button>
+                </footer>
+            </form>
+            <div className={styles.commentList}>
+                <Comment />
+                <Comment />
+                <Comment />
             </div>
         </article>
     );
