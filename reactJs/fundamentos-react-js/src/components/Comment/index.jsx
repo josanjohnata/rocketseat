@@ -1,16 +1,21 @@
+import { Avatar } from '../Avatar';
 import { HandsClapping, Trash } from 'phosphor-react';
-import styles from './comment.module.css';
+import styles from './Comment.module.css';
+
 
 export function Comment(props) {
     return (
         <div className={styles.comment}>
-            <img src="https://github.com/josanjohnata.png" />
+            <Avatar
+                hasBorder={false}
+                src="https://github.com/diego3g.png"
+            />
 
             <div className={styles.commentBox}>
                 <div className={styles.commentContent}>
                     <header>
                         <div className={styles.authorAndTime}>
-                            <strong>Josan Johnata</strong>
+                            <strong>Diego Fernandes</strong>
                             <time
                                 title='29 de Julho de 2022 às 08:13h'
                                 dateTime='2022-07-29 08:13:38'
