@@ -1,6 +1,6 @@
 import styles from './Avatar.module.css';
 
-export function Avatar({ hasBorder = true, src }) {
+function Avatar({ hasBorder = true, src }) {
     return (
         <img
             className={hasBorder ? styles.avatarWithBorder : styles.avatar}
@@ -8,3 +8,5 @@ export function Avatar({ hasBorder = true, src }) {
         />
     );
 }
+
+export default Avatar;
