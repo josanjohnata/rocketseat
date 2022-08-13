@@ -6,7 +6,6 @@ import styles from './Comment.module.css';
 function Comment({content, onDeleteComment}) {
     
     const handleDeleteComment = () => {
-        console.log(`Deletando comentário: ${content}`);
         onDeleteComment(content);
     }
 
