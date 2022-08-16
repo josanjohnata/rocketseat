@@ -1,5 +1,4 @@
 import todoLogo from "../../assets/rocket.png";
-import NewTasks from "../NewTasks/NewTasks";
 import styles from "./Header.module.css";
 
 function Header() {
@@ -12,7 +11,6 @@ function Header() {
           <span className={styles.do}>do</span>
         </h1>
       </header>
-      <NewTasks/>
     </>
   );
 }
