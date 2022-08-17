@@ -12,45 +12,130 @@
 }
 
 .newTaskForm input {
-box-sizing: border-box;
-padding: 0.888rem;
-gap: 0.444rem;
-width: 35.44rem;
-height: 3rem;
-background: var(--gray-500);
-border: 1px solid var(--gray-700);
-border-radius: 8px;
-flex: none;
-order: 0;
-flex-grow: 1;
-color: var(--gray-100);
+  box-sizing: border-box;
+  padding: 0.888rem;
+  gap: 0.444rem;
+  width: 35.44rem;
+  height: 3rem;
+  background: var(--gray-500);
+  border: 1px solid var(--gray-700);
+  border-radius: 8px;
+  flex: none;
+  order: 0;
+  flex-grow: 1;
+  color: var(--gray-100);
 }
 
 .newTaskForm button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.888rem;
-    gap: 0.444rem;    
-    width: 5rem;
-    height: 2.888rem;
-    background: var(--blueDark);
-    border-radius: 8px;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    color: var(--gray-100);
-    transition: background-color 0.1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.888rem;
+  gap: 0.444rem;
+  width: 5rem;
+  height: 2.888rem;
+  background: var(--blueDark);
+  border-radius: 8px;
+  border: none;
+  flex: none;
+  flex-grow: 0;
+  color: var(--gray-100);
+  transition: background-color 0.1s;
+  cursor: pointer;
 }
 
 .newTaskForm button:hover {
-    background: var(--blue);
+  background: var(--blue);
 }
 
 .newTaskForm button span {
-    display: flex;
+  display: flex;
 }
 
 .newTaskForm .icon {
-    margin-left: 0.15rem;
+  margin-left: 0.15rem;
+}
+
+.newTaskHeader {
+  display: flex;
+  justify-content: space-between;
+  width: 40.83rem;
+  height: 1.1rem;
+}
+
+.taskStatus {
+  display: flex;
+}
+
+.created {
+  display: flex;
+  color: var(--blue);
+  font-family: inter;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.done {
+  display: flex;
+  color: var(--purple);
+  font-family: "Inter";
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.countCreated {
+  width: 2rem;
+  height: 0.833rem;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.666rem;
+  line-height: 0.833rem;
+  color: var(--gray-200);
+  order: 0;
+  flex-grow: 0;
+  margin-left: 0.5rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.111rem 0.444rem;
+  gap: 0.555rem;
+  width: 1.333rem;
+  height: 1.2rem;
+  background: var(--gray-400);
+  border-radius: 999px;
+}
+
+.countDone {
+  width: 2rem;
+  height: 0.833rem;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.666rem;
+  line-height: 0.833rem;
+  color: var(--gray-200);
+  order: 0;
+  flex-grow: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.111rem 0.444rem;
+  gap: 0.555rem;
+  width: 2.888rem;
+  height: 1.2rem;
+  background: var(--gray-400);
+  border-radius: 999px;
+  margin-left: 0.5rem;
+}
+
+.newTaskInfo {
+  margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40.83rem;
 }

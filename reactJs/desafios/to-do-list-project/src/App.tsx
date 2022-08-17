@@ -1,14 +1,18 @@
-import Header from './components/Header/Header'
+import Header from "./components/Header/Header";
+import NewTasks from "./components/NewTasks/NewTasks";
 
-import './global.css'
+import "./App.module.css";
+import "./global.css";
 
 function App() {
-
   return (
     <>
-      <Header/>
+      <Header />
+      <main>
+        <NewTasks />
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
