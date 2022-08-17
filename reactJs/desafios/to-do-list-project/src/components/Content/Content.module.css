@@ -30,7 +30,6 @@
 textarea {
   margin-right: 0.5rem;
   box-sizing: border-box;
-
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -49,10 +48,6 @@ textarea {
   color: var(--gray-100);
 }
 
-.newTaskItem p {
-  cursor: pointer;
-}
-
 .newTask button {
   background: transparent;
   border: 0;
@@ -67,4 +62,32 @@ textarea {
 
 .newTask button:hover {
   background: var(--red);
+}
+
+.checkbox {
+  cursor: pointer;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 140%;
+  text-decoration-line: line-through;
+  color: var(--gray-300);
+  flex: none;
+  order: 1;
+  flex-grow: 1;
+  margin-left: 0.5rem;
+}
+
+.checkboxUnchecked {
+  cursor: pointer;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 140%;
+  color: var(--gray-100);  flex: none;
+  order: 1;
+  flex-grow: 1;
+  margin-left: 0.5rem;
 }
