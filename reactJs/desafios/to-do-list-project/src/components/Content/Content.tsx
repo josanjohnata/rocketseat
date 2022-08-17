@@ -1,20 +1,25 @@
-import { useState } from "react";
+import styles from "./Content.module.css";
 
-interface CommentProps {
-  content: string;
-}
+import { Trash } from "phosphor-react";
 
-function Content({ content }: CommentProps) {
-
-
-    return (
-        <div className="content">
-        <h1>Content</h1>
-        <p>
-            {content}
-        </p>
+function Content({content}) {
+  return (
+    <div className={styles.newTaskInfo}>
+      <div className={styles.newTaskContent}>
+        <div className={styles.newTask}>
+          <div className={styles.newTaskItem}>
+            <input type="checkbox" id="myTask" />
+            <label htmlFor="myTask">
+              <p>{content}</p>
+            </label>
+          </div>
+          <button>
+            <Trash />
+          </button>
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default Content;

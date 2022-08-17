@@ -41,6 +41,7 @@
   flex-grow: 0;
   color: var(--gray-100);
   transition: background-color 0.1s;
+  cursor: pointer;
 }
 
 .newTaskForm button:hover {
@@ -53,13 +54,6 @@
 
 .newTaskForm .icon {
   margin-left: 0.15rem;
-}
-
-.newTaskInfo {
-  margin-top: 5rem;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40.83rem;
 }
 
 .newTaskHeader {
@@ -139,50 +133,9 @@
   margin-left: 0.5rem;
 }
 
-.newTask {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 1rem;
-  gap: 0.125rem;
-  width: 40.9rem;
-  height: 4.5rem;
-  background: var(--gray-500);
-  border: 1px solid var(--gray-400);
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06);
-  border-radius: 8px;
-  align-self: stretch;
-  margin-top: 1.5rem;
-}
-
-.newTaskItem {
-  display: flex;
-  width: 40rem;
-}
-
-.newTaskItem input {
-  margin-right: 0.5rem;
-  box-sizing: border-box;
-  cursor: pointer;
-}
-
-.newTaskItem p {
-  cursor: pointer;
-}
-
-.newTask button {
-  background: transparent;
-  border: 0;
-  border-radius: 2px;
-  color: var(--gray-200);
-  line-height: 0;
-  cursor: pointer;
-  transition: background-color 0.1s;
-  display: flex;
-  align-items: center;
-}
-
-.newTask button:hover {
-  background: var(--red);
+.newTaskInfo {
+  margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40.83rem;
 }
