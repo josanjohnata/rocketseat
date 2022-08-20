@@ -17,12 +17,12 @@ function NewTasks(isChecked: boolean) {
     setNewTaskText("");
   }
 
-  function handleNewTaskChange(event: ChangeEvent<HTMLTextAreaElement>) {
+  function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
     event.target.setCustomValidity("");
     setNewTaskText(event.target.value);
   }
 
-  function handleNewTaskInvalid(event: InvalidEvent<HTMLTextAreaElement>) {
+  function handleNewTaskInvalid(event: InvalidEvent<HTMLInputElement>) {
     event.target.setCustomValidity("You need to write something!");
   }
 
@@ -36,12 +36,12 @@ function NewTasks(isChecked: boolean) {
   }
 
   function handleTaskDone() {
-      setCountDone(countDone - 1);
-  };
+    setCountDone(countDone - 1);
+  }
 
   function handleTaskToDO() {
     setCountDone(countDone + 1);
-};
+  }
 
   return (
     <article>
@@ -70,7 +70,9 @@ function NewTasks(isChecked: boolean) {
 
           <div className={styles.taskStatus}>
             <p className={styles.done}>Done</p>
-            <span className={styles.countDone}>{countDone} of {count}</span>
+            <span className={styles.countDone}>
+              {countDone} of {count}
+            </span>
           </div>
         </div>
       </div>
@@ -82,6 +84,7 @@ function NewTasks(isChecked: boolean) {
             onDeleteTask={deleteTask}
             onHandleTaskDone={handleTaskDone}
             onHandleTaskToDO={handleTaskToDO}
+            countDone={0}
           />
         );
       })}
