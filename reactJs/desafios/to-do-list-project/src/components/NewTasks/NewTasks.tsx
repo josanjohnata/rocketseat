@@ -7,6 +7,7 @@ import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
 function NewTasks() {
   const [tasks, setTasks] = useState([]);
   const [newTaskText, setNewTaskText] = useState("");
+  const [count, setCount] = useState(0);
   
   function handleCreateNewTask(event: FormEvent) {
     event.preventDefault();
@@ -21,7 +22,14 @@ function NewTasks() {
   }
 
   function handleNewTaskInvalid(event: InvalidEvent<HTMLTextAreaElement>) {
-    event.target.setCustomValidity("Esse campo é obrigatório!");
+    event.target.setCustomValidity("You need to write something!");
+  }
+
+  function deleteTask(taskToDelete: string) {
+    const taskWithoutDeletedOne = tasks.filter(task => {
+      return task !== taskToDelete;
+    });
+    setTasks(taskWithoutDeletedOne);
   }
 
   return (
@@ -38,7 +46,10 @@ function NewTasks() {
           onInvalid={handleNewTaskInvalid}
           required
         />
-        <button type="submit">
+        <button
+          type="submit"
+          onClick={ () => setCount(count + 1) }
+        >
           <span>
             Submit
             <PlusCircle size={16} className={styles.icon} />
@@ -49,17 +60,21 @@ function NewTasks() {
         <div className={styles.newTaskHeader}>
           <div className={styles.taskStatus}>
             <p className={styles.created}>Created</p>
-            <span className={styles.countCreated}>0</span>
+            <span className={styles.countCreated}>{count}</span>
           </div>
 
           <div className={styles.taskStatus}>
             <p className={styles.done}>Done</p>
-            <span className={styles.countDone}>0 of 0</span>
+            <span className={styles.countDone}>0 of {count}</span>
           </div>
         </div>
       </div>
-      {tasks.map(content => {
-        return <Content content={content} />;
+      {tasks.map((content) => {
+        return (
+          <Content
+            key={content}
+            content={content}
+            onDeleteTask={deleteTask}/>);
       })}
     </article>
   );
