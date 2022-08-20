@@ -1,3 +1,4 @@
+
 .newTaskInfo {
   margin-top: 1.8rem;
   margin-left: auto;
@@ -68,7 +69,6 @@ textarea {
   cursor: pointer;
   font-family: "Inter";
   font-style: normal;
-  font-weight: 400;
   font-size: 0.875rem;
   line-height: 140%;
   text-decoration-line: line-through;
@@ -83,7 +83,6 @@ textarea {
   cursor: pointer;
   font-family: "Inter";
   font-style: normal;
-  font-weight: 400;
   font-size: 0.875rem;
   line-height: 140%;
   color: var(--gray-100);  flex: none;
@@ -91,3 +90,4 @@ textarea {
   flex-grow: 1;
   margin-left: 0.5rem;
 }
+

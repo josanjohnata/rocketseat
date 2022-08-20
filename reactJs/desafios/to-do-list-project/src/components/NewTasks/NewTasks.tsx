@@ -4,11 +4,12 @@ import styles from "./NewTasks.module.css";
 import { PlusCircle } from "phosphor-react";
 import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
 
-function NewTasks() {
+function NewTasks(isChecked: boolean) {
   const [tasks, setTasks] = useState([]);
   const [newTaskText, setNewTaskText] = useState("");
   const [count, setCount] = useState(0);
-  
+  const [countDone, setCountDone] = useState(0);
+
   function handleCreateNewTask(event: FormEvent) {
     event.preventDefault();
     setTasks([...tasks, newTaskText]);
@@ -16,40 +17,46 @@ function NewTasks() {
     setNewTaskText("");
   }
 
-  function handleCreateNewTaskChange(event: ChangeEvent<HTMLTextAreaElement>) {
+  function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
     event.target.setCustomValidity("");
     setNewTaskText(event.target.value);
   }
 
-  function handleNewTaskInvalid(event: InvalidEvent<HTMLTextAreaElement>) {
+  function handleNewTaskInvalid(event: InvalidEvent<HTMLInputElement>) {
     event.target.setCustomValidity("You need to write something!");
   }
 
   function deleteTask(taskToDelete: string) {
-    const taskWithoutDeletedOne = tasks.filter(task => {
+    const tasksWithoutDeletedOne = tasks.filter((task) => {
       return task !== taskToDelete;
     });
-    setTasks(taskWithoutDeletedOne);
+    setTasks(tasksWithoutDeletedOne);
+    setCount(count - 1);
+    isChecked && countDone !== 0
+      ? setCountDone(countDone - 1)
+      : setCountDone(countDone);
+  }
+
+  function handleTaskDone() {
+    setCountDone(countDone - 1);
+  }
+
+  function handleTaskToDO() {
+    setCountDone(countDone + 1);
   }
 
   return (
     <article>
-      <form
-        onSubmit={handleCreateNewTask}
-        className={styles.newTaskForm}
-      >
-        <textarea
+      <form onSubmit={handleCreateNewTask} className={styles.newTaskForm}>
+        <input
           placeholder="Add a new task"
           name="newTask"
           value={newTaskText}
-          onChange={handleCreateNewTaskChange}
+          onChange={handleNewTaskChange}
           onInvalid={handleNewTaskInvalid}
           required
         />
-        <button
-          type="submit"
-          onClick={ () => setCount(count + 1) }
-        >
+        <button type="submit" onClick={() => setCount(count + 1)}>
           <span>
             Submit
             <PlusCircle size={16} className={styles.icon} />
@@ -65,7 +72,9 @@ function NewTasks() {
 
           <div className={styles.taskStatus}>
             <p className={styles.done}>Done</p>
-            <span className={styles.countDone}>0 of {count}</span>
+            <span className={styles.countDone}>
+              {countDone} of {count}
+            </span>
           </div>
         </div>
       </div>
@@ -74,7 +83,12 @@ function NewTasks() {
           <Content
             key={content}
             content={content}
-            onDeleteTask={deleteTask}/>);
+            onDeleteTask={deleteTask}
+            onHandleTaskDone={handleTaskDone}
+            onHandleTaskToDO={handleTaskToDO}
+            countDone={0}
+          />
+        );
       })}
     </article>
   );
