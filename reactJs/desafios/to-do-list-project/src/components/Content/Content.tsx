@@ -8,22 +8,29 @@ interface TasksProps {
   onDeleteTask: (comment: string) => void;
   onHandleTaskDone: (comment: number) => void;
   onHandleTaskToDO: (comment: number) => void;
+  countDone: number;
 }
 
-function Content({ content, onDeleteTask, onHandleTaskDone, onHandleTaskToDO }: TasksProps) {
+function Content({
+  content,
+  onDeleteTask,
+  onHandleTaskDone,
+  onHandleTaskToDO,
+  countDone,
+}: TasksProps) {
   const [isChecked, setIsChecked] = useState(false);
 
   function handleDeleteTask() {
     onDeleteTask(content);
-  };
+  }
 
   function handleTaskDone() {
-    onHandleTaskDone(content);
+    onHandleTaskDone(countDone);
     setIsChecked(!isChecked);
-  };
+  }
 
   function handleTaskToDO() {
-    onHandleTaskToDO(content);
+    onHandleTaskToDO(countDone);
     setIsChecked(!isChecked);
   }
 
@@ -31,18 +38,11 @@ function Content({ content, onDeleteTask, onHandleTaskDone, onHandleTaskToDO }: 
     <div className={styles.newTaskInfo}>
       <div className={styles.newTask}>
         <div className={styles.newTaskItem}>
-          <a
-            onClick={isChecked ? handleTaskDone : handleTaskToDO}
-
-          >
+          <a onClick={isChecked ? handleTaskDone : handleTaskToDO}>
             {isChecked === true ? (
               <CheckCircle size={20} color="#5E60CE" weight="bold" />
             ) : (
-              <Circle
-                size={20}
-                color="#4EA8DE"
-                weight="bold"
-              />
+              <Circle size={20} color="#4EA8DE" weight="bold" />
             )}
           </a>
           <p
