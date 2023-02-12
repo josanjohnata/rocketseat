@@ -1,12 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { Header } from './src/Header';
+import { NewTask } from './src/components/NewTask';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <Header />
-      <Text>To Do List</Text>
+      <NewTask />
       <StatusBar
         style="light"
         backgroundColor='transparent'
