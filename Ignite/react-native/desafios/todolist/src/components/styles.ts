@@ -36,7 +36,11 @@ export const styles = StyleSheet.create({
     height: 56,
     backgroundColor: '#1F1E25',
     borderRadius: 6,
+<<<<<<< HEAD
     color: '#262626',
+=======
+    color: '#fff',
+>>>>>>> 5e94197 (feat: Finaliza input home empty)
     padding: 16,
     fontSize: 16,
     marginRight: 12,
