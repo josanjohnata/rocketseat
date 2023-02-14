@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { Header } from './src/Header';
+import { StyleSheet, View } from 'react-native';
+import { Header } from './src/components/Header';
 import { NewTask } from './src/components/NewTask';
 
 export default function App() {

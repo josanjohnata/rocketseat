@@ -1,6 +1,7 @@
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
 import Icon from 'react-native-vector-icons/AntDesign'
+import { List } from "../List";
 
 export function NewTask() {
   return (
@@ -37,11 +38,12 @@ export function NewTask() {
         </View>
 
         <View style={styles.empty}>
-          <Icon name="filetext1" size={56} />
+          <Icon name="filetext1" size={56} color='#808080' />
           <View style={styles.emptyMessage}>
             <Text style={styles.emptyText1}>Você ainda não tem tarefas cadastradas</Text>
             <Text style={styles.emptyText2}>Crie tarefas e organize seus itens a fazer</Text>
           </View>
+          <List />
         </View>
       </View>
     </>
