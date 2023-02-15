@@ -18,19 +18,7 @@ export const styles = StyleSheet.create({
     order: 0,
     alignSelf: 'stretch',
     flexGrow: 0,
-  },
-  checkBox: {
-    color: '#1E6F9F',
-    position: 'absolute',
-    width: 24,
-    height: 24,
-    top: 13.64,
-    bottom: 13.64,
-    left: 13.64,
-    right: 13.64,
-    order: 0,
-    flexGrow: 0,
-    fontSize: 24
+    marginBottom: 8,
   },
   textTask: {
     width: 270,
@@ -56,5 +44,27 @@ export const styles = StyleSheet.create({
   trash: {
     color: '#808080',
     fontSize: 32,
+  },
+  unchecked: {
+    color: '#4EA8DE',
+    fontWeight: '400',
+    position: 'absolute',
+    width: 24,
+    height: 24,
+    order: 0,
+    flexGrow: 0,
+    fontSize: 24,
+    top: 6,
+  },
+  checked: {
+    color: '#5E60CE',
+    fontWeight: 'bold',
+    position: 'absolute',
+    width: 24,
+    height: 24,
+    order: 0,
+    flexGrow: 0,
+    fontSize: 24,
+    top: 6,
   },
 })
