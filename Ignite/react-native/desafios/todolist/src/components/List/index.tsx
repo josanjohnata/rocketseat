@@ -22,7 +22,7 @@ export function List() {
   };
 
   return (
-    <View>
+    <View style={styles.containerList}>
       {isChecked.map((item) =>(
         <View key={item.id} style={styles.containerTask}>
           <TouchableOpacity onPress={() => handleTasksDone(item.id)} >

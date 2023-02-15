@@ -1,6 +1,9 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
+  containerList: {
+    top: 10,
+  },
   containerTask: {
     flexDirection: 'row',
     alignItems: 'center',
