@@ -1,32 +1,33 @@
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Alert, FlatList, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
 import Icon from 'react-native-vector-icons/AntDesign'
 import { List } from "../List";
-import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 export function NewTask() {
   const [tasks, setTasks] = useState<string[]>([]);
   const [newTaskText, setNewTaskText] = useState("");
   const [count, setCount] = useState(0);
 
-  const handleNewTaskAdd = (event: FormEvent) => {
-    event.preventDefault();
-    setTasks([...tasks, newTaskText]);
+  const handleNewTaskAdd = () => {
+    setTasks(prevState => [...prevState, newTaskText]);
 
     setNewTaskText('');
   }
 
-  function handleCreateNewTaskChange(event: ChangeEvent<HTMLTextAreaElement>) {
-    event.target.setCustomValidity("");
-    setNewTaskText(event.target.value);
-  }
-
-  function deleteTask(taskToDelete: string) {
-    const taskWithoutDeletedOne = tasks.filter(task => {
-      return task !== taskToDelete;
-    });
-    setTasks(taskWithoutDeletedOne);
-  }
+  const handleTaskRemove = (taskName: string) => {
+    Alert.alert('Remover', `Tem certeza que deseja remover?`, [
+     {
+       text: 'Sim',
+       onPress: () => setTasks(prevState => prevState
+         .filter(task => task !== taskName))
+     },
+     {
+       text: 'Não',
+       style: 'cancel'
+     }
+   ])
+ };
   
   return (
     <>
@@ -35,13 +36,14 @@ export function NewTask() {
           style={styles.input}
           placeholder="Adicione uma nova tarefa"
           placeholderTextColor="#808080"
-          onChangeText={() => handleCreateNewTaskChange}
+          onChangeText={setNewTaskText}
+          value={newTaskText}
         />
 
         <TouchableOpacity
             style={styles.newTask}
             activeOpacity={0.7}
-            onPress={() => handleNewTaskAdd}
+            onPress={handleNewTaskAdd}
           >
           <Icon name="pluscircleo" size={16} color="#fff"/>
         </TouchableOpacity>
@@ -63,20 +65,29 @@ export function NewTask() {
           </View>
         </View>
 
-        <View style={styles.empty}>
-          {
-            newTaskText === '' ?
-            <>
-              <Icon name="filetext1" size={56} color='#808080' />
-              <View style={styles.emptyMessage}>
-                <Text style={styles.emptyText1}>Você ainda não tem tarefas cadastradas</Text>
-                <Text style={styles.emptyText2}>Crie tarefas e organize seus itens a fazer</Text>
-              </View>
-            </>
-            :
-            <List />
-          }
-        </View>
+        <FlatList
+          data={tasks}
+          keyExtractor={item => item}
+          showsVerticalScrollIndicator={false}
+          renderItem={({ item }) => (
+            <List
+              key={item}
+              onRemove={() => handleTaskRemove(item)}
+              taskName={item}
+            />
+          )}
+          ListEmptyComponent={() => (
+            <View style={styles.empty}>
+              <>
+                <Icon name="filetext1" size={56} color='#808080' />
+                <View style={styles.emptyMessage}>
+                  <Text style={styles.emptyText1}>Você ainda não tem tarefas cadastradas</Text>
+                  <Text style={styles.emptyText2}>Crie tarefas e organize seus itens a fazer</Text>
+                </View>
+              </>
+            </View>
+          )}
+        />
       </View>
     </>
   )
