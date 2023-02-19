@@ -1,9 +1,10 @@
 import { Text, TouchableOpacity, View } from "react-native";
 
 import IconTrash from 'react-native-vector-icons/EvilIcons';
-// import IconChecked from 'react-native-vector-icons/AntDesign';
-// import IconUnchecked from 'react-native-vector-icons/Entypo';
+import IconChecked from 'react-native-vector-icons/AntDesign';
+import IconUnchecked from 'react-native-vector-icons/Entypo';
 import { styles } from "./styles";
+import { useState } from "react";
 
 type Props = {
   taskName: string;
@@ -11,28 +12,48 @@ type Props = {
 }
 
 export function List({ taskName, onRemove }: Props) {
-
-  // const handleTasksDone = (itemId: number) => {
-  //   setIsChecked((prevState) =>
-  //     prevState.map((item) =>
-  //       item.id === itemId ? { ...item, isChecked: !item.isChecked } : item
-  //     )
-  //   );
-  // };
+  const [isChecked, setIsChecked] = useState(false);
+  const [taskDoneCount, setTaskDoneCount] = useState(0);
 
   return (
-    <View style={styles.containerList}>
-      {/* {isChecked.map((item) =>( */}
+    <View style={styles.containerList}> 
         <View style={styles.containerTask}>
-          <TouchableOpacity >
-            {/* {
-              item.isChecked ? <IconChecked name="checkcircle" style={styles.checked} /> 
+          <TouchableOpacity
+            onPress={() => {
+              setIsChecked(!isChecked);
+              if (!isChecked) {
+                setTaskDoneCount(taskDoneCount + 1);
+              } else {
+                setTaskDoneCount(taskDoneCount - 1);
+              }
+            }}
+          >
+            {
+              isChecked ?
+              <IconChecked
+                name="checkcircle"
+                style={styles.checked}
+              />
                 : <IconUnchecked name="circle" style={styles.unchecked} />
-            } */}
-          
-            <Text style={styles.textTask}>
-              {taskName}
-            </Text>
+            }
+            {
+              isChecked ? 
+                <Text
+                  style={styles.textTaskChecked}
+                  numberOfLines={2}
+                >
+                  {taskName}
+                </Text>
+                  : 
+                    <Text
+                      style={styles.textTask}
+                      numberOfLines={2}
+                    >
+                      {taskName}
+                    </Text>
+            }
+            
+            
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.containerTrash}
@@ -41,8 +62,6 @@ export function List({ taskName, onRemove }: Props) {
             <IconTrash name='trash' style={styles.trash} />
           </TouchableOpacity>
         </View>
-      {/* ))} */}
-      
     </View>
   )
 }
