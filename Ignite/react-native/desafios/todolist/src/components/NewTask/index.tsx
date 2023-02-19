@@ -2,7 +2,7 @@ import { Alert, FlatList, Text, TextInput, TouchableOpacity, View } from "react-
 import { styles } from "./styles";
 import Icon from 'react-native-vector-icons/AntDesign'
 import { List } from "../List";
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 
 export function NewTask() {
   const [tasks, setTasks] = useState<string[]>([]);
@@ -10,17 +10,24 @@ export function NewTask() {
   const [count, setCount] = useState(0);
 
   const handleNewTaskAdd = () => {
+    if (!newTaskText) {
+      return Alert.alert('Texto vazio', 'Você precisa digitar uma nova task!');
+    }
     setTasks(prevState => [...prevState, newTaskText]);
+    setCount(count + 1);
 
     setNewTaskText('');
   }
 
   const handleTaskRemove = (taskName: string) => {
-    Alert.alert('Remover', `Tem certeza que deseja remover?`, [
+    Alert.alert('Remover', 'Tem certeza que deseja remover?', [
      {
        text: 'Sim',
-       onPress: () => setTasks(prevState => prevState
-         .filter(task => task !== taskName))
+       onPress: () => {
+        setTasks(prevState => prevState
+         .filter(task => task !== taskName));
+        setCount(count - 1);
+        }
      },
      {
        text: 'Não',
@@ -60,7 +67,7 @@ export function NewTask() {
           <View style={styles.doneTask}>
             <Text style={styles.doneName}>Concluídas</Text>
             <View style={styles.counterCreated}>
-              <Text style={styles.counterStatus}>{count}</Text>
+              <Text style={styles.counterStatus}>{0}</Text>
             </View>
           </View>
         </View>
