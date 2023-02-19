@@ -1,5 +1,5 @@
 <div align="center" style="padding-bottom:30px; background:transparent">
-<img src ="./src/assets/todo-list.gif" style="background:transparent" />
+<img src ="./src/assets/test-app.gif" style="background:transparent" />
 </div>
 
 ## 💻 Projeto
