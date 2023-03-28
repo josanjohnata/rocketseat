@@ -13,11 +13,6 @@ export const Logo = styled.Image`
   height: 55px;
 `;
 
-// export const SaveArea = styled.SafeAreaView`
-//   flex: 1;
-//   /* justify-content: center */
-// `;
-
 export const BackButton = styled.TouchableOpacity`
   flex: 1;
 `;
